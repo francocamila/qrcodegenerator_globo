@@ -1,0 +1,13 @@
+<!-- templates/home.html-->
+<h1>QR Code Generator</h1>
+  <form method="POST" action="">
+  {% csrf_token %}
+  {{ form.as_p }}
+  text: <input type="text" name="handle" value=""><br> 
+  <input type="submit" value="Submit" >
+  <a href="{{ola}}">oi</a> 
+  </form>
+
+ 
+
+
