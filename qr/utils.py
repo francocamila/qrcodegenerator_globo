@@ -26,11 +26,12 @@ def oi(oie):
     shortener.short(url)
     link_image = shortener.qrcode(300,300)
     #saving
-    filename = link_image.split('/')[-1]
-    r = requests.get(link_image, allow_redirects=True)
-    image = r.content
-    open(filename, 'wb').write(image)
-    shutil.copy(filename, os.path.join(BASE_DIR, 'media/images'))
+    #filename = 'qrcode1'
+    #filename = link_image.split('/')[-1]
+    #r = requests.get(link_image, allow_redirects=True)
+    #image = r.content
+    #open(filename, 'wb').write(image)
+    #shutil.copy(filename, os.path.join(BASE_DIR, 'media/images'))
 
     return link_image
 

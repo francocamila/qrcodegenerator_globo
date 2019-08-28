@@ -21,9 +21,9 @@ def index(request):
         #model = Post
         #form_class = PostForm
         a = oi(screenname)
-        context = {
-            'ola': a,
-        }
+        #context = {
+        #    'ola': a,
+        #}
         return render(request, 'qrcode/index.html', {'result':a})
-        return HttpResponse(template.render(context, request))
+        #return HttpResponse(template.render(context, request))
     return render(request, 'qrcode/index.html', {})
