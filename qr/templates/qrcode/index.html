@@ -1,13 +1,13 @@
 <!-- templates/home.html-->
 <style>
   .iconbar{
-    width:90px;
-    background-color:gray;
+    width:50px;
+    background-color:lavender;
   }
   .icon-bar a{
     display:block;
     text-align: center;
-    padding: 5px;
+    padding: 1px;
     transition:all 0.3s ease;
     color:white;
     font-size: 30px;
@@ -19,11 +19,11 @@
   }
 
   .active {
-    background-color:gray;
+    background-color:lightgrey;
     font-family:Impact, Charcoal,sans-serif;
   }
   body{
-    background-color: #0e0d0d
+    background-color:rgb(39, 38, 38);
 } 
 
   input[type=button], input[type=submit]{
@@ -47,22 +47,18 @@
 </style>
 <br /><br />
 
-<div class="icon-bar">
-  <a class="active">  
-    <p style="color:black">Tecnologia Brasília</p>
-  </a>  
-</div>
+ 
+{% load static %}
+&emsp;&emsp;&emsp;<img src="{% static "qr/globo_logo3.jpg" %}" style="width:10%" >    
 
 <center>
   <br /><br />
-{% load static %}
-<img src="{% static "qr/globo_logo3.jpg" %}" style="width:16%" >    
 <h1 style="color:whitesmoke" >Gerador de QR Code</h1><br />
 <form method="POST" action="">
 {% csrf_token %}
 {{ form.as_p }}<br />
 
-<p style="color:gray">Insira URL para QR Code:</p><input type="text" name="handle" value="">
+<p style="color:gray">URL para QR Code:<input type="text" name="handle" value=""></p>
 <input type="submit" value="Enviar"><br /></form>
  
 <br />
