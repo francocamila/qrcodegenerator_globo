@@ -13,11 +13,8 @@
 {% csrf_token %}
 {{ form.as_p }}<br /><br />
 
-Insira URL para QR Code: <input type="text" name="handle" value=""><br> 
+Insira URL para QR Code: <input type="text" name="handle" value="">
+<input type="submit" value="Enviar"><br /></form>
 
-
-<input type="submit" value="Enviar">
 <br />
-<a href="{{result}}">QrCode Gerado!</a></center> 
-</form>
-</center>
+<a href="{{result}}">QrCode Gerado!</a> </center>
