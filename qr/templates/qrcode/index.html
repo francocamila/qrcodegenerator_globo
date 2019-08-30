@@ -19,17 +19,17 @@
   }
 
   .active {
-    background-color:lightgrey;
+    background-color:white;
     font-family:Impact, Charcoal,sans-serif;
   }
   body{
-    background-color:rgb(39, 38, 38);
+    background-color:rgb(46, 46, 45);
 } 
 
   input[type=button], input[type=submit]{
-    background-color:blue;
+    background-color:lightblue;
     border: none;
-    color: white;
+    color: darkblue;
     padding: 16px 32px;
     text-decoration: none;
     margin: 4px 2px;
@@ -49,17 +49,22 @@
 
  
 {% load static %}
-&emsp;&emsp;&emsp;<img src="{% static "qr/globo_logo3.jpg" %}" style="width:7%" >    
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="{% static "qr/globo_logo3.jpg" %}" style="width:7%" >    
 
 <center>
   <br /><br />
 <h1 style="color:whitesmoke" >Gerador de QR Code</h1><br />
+<body>
+
 <form method="POST" action="">
 {% csrf_token %}
-{{ form.as_p }}<br />
-
+{{ form.as_p }}
 <p style="color:gray">URL para QR Code:<input type="text" name="handle" value=""></p>
-<input type="submit" value="Enviar"><br /></form>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="submit" name="btn" value="G1"></P>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="submit" name="btn" value="GE"></p>
+  
+</form> 
  
 <br />
 <a style="color:cornflowerblue"href="{{result}}">QrCode Gerado!</a> </center>
+</body>

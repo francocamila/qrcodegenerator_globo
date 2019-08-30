@@ -15,15 +15,26 @@ from .forms import PostForm
 #    success_url = reverse_lazy('index')
 
 def index(request):
-    template = loader.get_template('qrcode/index.html')
     if request.method == "POST":
-        screenname = request.POST.get("handle", None)
+        val = request.POST.get("btn")
+        if val == "G1":
+            screenname = request.POST.get("handle", None)
+            a = G1(screenname)
+            return render(request, 'qrcode/index.html', {'result':a})
+        if val == "GE":
+            screenname = request.POST.get("handle", None)
+            a = GE(screenname)
+            return render(request, 'qrcode/index.html', {'result':a})
+        
+    #if request.method == "POST":
+    #    screenname = request.POST.get("handle", None)
         #model = Post
         #form_class = PostForm
-        a = oi(screenname)
+    #    a = oi(screenname)
         #context = {
         #    'ola': a,
         #}
-        return render(request, 'qrcode/index.html', {'result':a})
+     #   return render(request, 'qrcode/index.html', {'result':a})
         #return HttpResponse(template.render(context, request))
+    #return render(request, 'qrcode/index.html', {'expense_form': expense_form,})
     return render(request, 'qrcode/index.html', {})
