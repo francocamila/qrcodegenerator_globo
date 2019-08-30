@@ -60,11 +60,17 @@
 {% csrf_token %}
 {{ form.as_p }}
 <p style="color:gray">URL para QR Code:<input type="text" name="handle" value=""></p>
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="submit" name="btn" value="G1"></P>
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="submit" name="btn" value="GE"></p>
-  
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="submit" name="btn" value="G1" onclick="ShowQR()"></P>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="submit" name="btn" value="GE" onclick="ShowQR()"></p>
+<img id="bigpic" src="{{result}}"/> 
 </form> 
- 
+
+<!-- <a style="color:cornflowerblue"href="{{result}}">QrCode Gerado!</a> -->
 <br />
-<a style="color:cornflowerblue"href="{{result}}">QrCode Gerado!</a> </center>
+  <script type="text/javascript">
+     function ShowQR(){
+      document.getElementById('bigpic').src = pic.replace('300x300', '255,255');
+    }
+  </script>
+</center>
 </body>
