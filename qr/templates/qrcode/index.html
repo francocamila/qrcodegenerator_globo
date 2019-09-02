@@ -1,36 +1,28 @@
 <!-- templates/home.html-->
+
+<link rel="stylesheet"
+href="https://fonts.googleapis.com/css?family=Lobster&effect=brick-sign">
+
 <style>
-  .iconbar{
-    width:50px;
-    background-color:lavender;
-  }
-  .icon-bar a{
-    display:block;
-    text-align: center;
-    padding: 1px;
-    transition:all 0.3s ease;
-    color:white;
-    font-size: 30px;
-    font-family:Impact, Charcoal,sans-serif;
-  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lobster', serif;
+    font-style: normal;
+}
 
-  .icon-bar a:hover {
-    background-color:grey;
-  }
+html, body{
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
 
-  .active {
-    background-color:white;
-    font-family:Impact, Charcoal,sans-serif;
-  }
   body{
-    background-color:rgb(46, 46, 45);
+    background-color:whitesmoke;
 } 
 
-  input[type=button], input[type=submit]{
-    background-color:lightblue;
-    border: none;
-    color: darkblue;
-    padding: 16px 32px;
+  input[type=button]{
+    background-color:#2E151B;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    border:none;
+    color: #2E151B;
+    padding: 4px 8px;
     text-decoration: none;
     margin: 4px 2px;
     cursor: pointer;
@@ -39,8 +31,8 @@
   input[type=text] {
     background-color:transparent;
     border:none;
-    border-bottom: 3px solid gray;
-    color: whitesmoke;
+    border-bottom: 3px solid #2F4454;
+    color: black;
   }
 
 
@@ -52,19 +44,19 @@
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="{% static "qr/globo_logo3.jpg" %}" style="width:7%" >    
 
 <center>
-  <br /><br />
-<h1 style="color:whitesmoke" >Gerador de QR Code</h1><br />
+<h1 style="color:#1C3334" >Gerador de QR Code</h1><br />
 <body>
-
+<br />
+<br />
+<br />
 <form method="POST" action="">
 {% csrf_token %}
 {{ form.as_p }}
-<p style="color:gray">URL para QR Code:<input type="text" name="handle" value=""></p>
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="submit" name="btn" value="G1" onclick="ShowQR()"></P>
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="submit" name="btn" value="GE" onclick="ShowQR()"></p>
+<p style="color:#2F4454">URL para QR Code:<input type="text" name="handle" value=""></p>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="{% static "qr/g1.png" %}" style="width:5%" ><input type="submit" name="btn" value="G1" onclick="ShowQR()"></P>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="{% static "qr/ge.png" %}" style="width:5%" ><input type="submit" name="btn" value="GE" onclick="ShowQR()"></p>
 <img id="bigpic" src="{{result}}"/> 
-</form> 
-
+</form>
 <!-- <a style="color:cornflowerblue"href="{{result}}">QrCode Gerado!</a> -->
 <br />
   <script type="text/javascript">
