@@ -24,6 +24,7 @@ html, body{
 
 }
   input[type=text] {
+    width: 40%;
     background-color:transparent;
     border:none;
     border-bottom: 3px solid #2F4454;
@@ -33,24 +34,24 @@ html, body{
 </style>
 <br /><br />
 
- 
+<center> 
 {% load static %}
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="{% static "qr/index.jpeg" %}" style="width:10%" >    
+<img src="{% static "qr/index.jpeg" %}" style="width:16%" >    
 
-<center>
+
 <h1 style="color:#1C3334" >Gerador de QR Code</h1><br />
 <body>
 <br />
 <br />
-<br />
+</center>
 <form method="POST" action="">
 {% csrf_token %}
 {{ form.as_p }}
-<p style="color:#2F4454">URL para QR Code:<input type="text" name="handle" value=""></p>
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="{% static "qr/g1.png" %}" style="width:5%" >
-<input type="submit" name="btn" value="G1" onclick="ShowQR()"></P>
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="{% static "qr/ge.png" %}" style="width:5%" >
-<input type="submit" name="btn" value="GE" onclick="ShowQR()"></p>
+&emsp;&emsp;&emsp;<p style="color:#2F4454">URL para QR Code:<input type="text" name="handle" value="">
+<img src="{% static "qr/g1.png" %}" style="width:5%" >
+<input type="submit" name="btn" value="G1" onclick="ShowQR()"></p>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="{% static "qr/ge.png" %}" style="width:5%" >
+<input type="submit" name="btn" value="GE" onclick="ShowQR()">
 <img id="bigpic" src="{{result}}"/> 
 </form>
 <!-- <a style="color:cornflowerblue"href="{{result}}">QrCode Gerado!</a> -->
@@ -60,5 +61,5 @@ html, body{
       document.getElementById('bigpic').src = pic.replace('300x300', '255,255');
     }
   </script>
-</center>
+
 </body>
