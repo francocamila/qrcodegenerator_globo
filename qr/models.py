@@ -7,6 +7,10 @@ class Post(models.Model):
     URL = models.TextField()
 #    cover = models.ImageField(upload_to='images/')
 
+    def publish(self):
+        self.publish_date=timezone.now()
+        self.save()
+
     def __str__(self):
         return self.URL
 

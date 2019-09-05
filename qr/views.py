@@ -6,6 +6,7 @@ from django.views.generic import ListView, CreateView
 from django.urls import reverse_lazy
 from .models import Post
 from .forms import PostForm
+from django.utils import timezone
 
 
 #class CreatePostView(CreateView):
@@ -15,6 +16,7 @@ from .forms import PostForm
 #    success_url = reverse_lazy('index')
 
 def index(request):
+    posts = Post.objects.order_by('URL')
     if request.method == "POST":
         val = request.POST.get("btn")
         if val == "G1":

@@ -20,15 +20,29 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+
 with open('/etc/secret_key.txt') as f:
     SECRET_KEY = f.read().strip()
-#SECRET_KEY = os.eviron['SECRET_KEY']
+
+
 
 DEBUG = 'False'
 
 ALLOWED_HOSTS = ['0.0.0.0', '.pythonanywhere.com']
 
+CSRF_COOKIE_SECURE = 'True'
 
+SESSION_COOKIE_SECURE = 'True'
+
+SECURE_CONTENT_TYPE_NOSNIFF = 'True'
+
+SECURE_BROWSER_XSS_FILTER = 'True'
+
+SECURE_SSL_REDIRECT = 'True'
+
+X_FRAME_OPTIONS = 'Deny'
+
+CONN_MAX_AGE = 'None'
 # Application definition
 
 INSTALLED_APPS = [
