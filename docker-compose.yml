@@ -3,9 +3,11 @@ version: '3'
 services:
   db:
     image: postgres:9.6
+    env_file: dev-env
   web:
     build: .
-    command: python manage.py runserver 0.0.0.0:8000
+    env_file: dev-env
+    command: ["sh", "start.sh"]
     volumes:
       - .:/qrcode
     ports:

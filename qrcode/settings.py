@@ -11,6 +11,11 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import environ
+
+env = environ.Env()
+
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -26,13 +31,13 @@ SECRET_KEY = 'g-@=2!e)5o@+-roq80hcxh3f*hx5h8lj2vwcm2w9@rd&75$+82'
 
 
 
-DEBUG = 'False'
+DEBUG = True
 
 ALLOWED_HOSTS = ['0.0.0.0', '.pythonanywhere.com']
 
-CSRF_COOKIE_SECURE = 'True'
+CSRF_COOKIE_SECURE = True
 
-SESSION_COOKIE_SECURE = 'True'
+SESSION_COOKIE_SECURE = True
 
 # Application definition
 
@@ -83,8 +88,12 @@ WSGI_APPLICATION = 'qrcode.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': env('POSTGRES_DB'),
+        'USER': env('POSTGRES_USER'),
+        'PASSWORD': env('POSTGRES_PASSWORD'),
+        'HOST': env('POSTGRES_HOST'),
+        'PORT': env('POSTGRES_PORT')
     }
 }
 
