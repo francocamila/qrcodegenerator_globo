@@ -28,15 +28,9 @@ def index(request):
             a = GE(screenname)
             return render(request, 'qrcode/index.html', {'result':a})
         
-    #if request.method == "POST":
-    #    screenname = request.POST.get("handle", None)
-        #model = Post
-        #form_class = PostForm
-    #    a = oi(screenname)
-        #context = {
-        #    'ola': a,
-        #}
-     #   return render(request, 'qrcode/index.html', {'result':a})
-        #return HttpResponse(template.render(context, request))
-    #return render(request, 'qrcode/index.html', {'expense_form': expense_form,})
+    qs = Post.objects.all()
+    with open('qr_data.csv', 'wb') as csv_file:
+        write_csv(qs, csv_file)
     return render(request, 'qrcode/index.html', {})
+
+#def csv_view(request):

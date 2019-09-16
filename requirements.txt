@@ -3,3 +3,4 @@ psycopg2>=2.7,<3.
 pyshorteners==0.6.1 
 pillow==5.4.1
 django-environ==0.4.4
+django-queryset-csv==1.0.2

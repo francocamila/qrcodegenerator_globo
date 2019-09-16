@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post, Expense
+from .models import Post
  
 
 class ExpenseForm(forms.Form):
