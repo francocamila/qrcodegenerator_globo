@@ -11,17 +11,6 @@ import csv
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
-#url1 = input("Enter the URL to get QR code:")
-#print(url1)
-#url1= 'https://google.com'
-#add ='?utm_source=tv&utm_medium=qrcode&utm_campaign=g1df'
-#url = url1 + add
-#shortener = Shortener('Tinyurl')
-#shortener.short(url1)
-#print (shortener.qrcode(300,300))
-
-
 def qr_generator(original_url, add):
 
     url = original_url + add
@@ -41,7 +30,6 @@ def qr_generator(original_url, add):
 
 
 def G1(original_url):
-    add ='?utm_source=tv&utm_medium=qrcode&utm_campaign=g1df'
     link_image = qr_generator(original_url, add)
     post = Post()
     post.url = original_url
@@ -50,7 +38,6 @@ def G1(original_url):
     return link_image
 
 def GE(original_url):
-    add ='?utm_source=tv&utm_medium=qrcode&utm_campaign=gedf'
     link_image = qr_generator(original_url, add)
     post = Post()
     post.url = original_url

@@ -7,3 +7,7 @@ db.sqlite3
 .DS_Store
 /certs
 /nginx
+/certbot
+secret_key.txt
+qr/secret_key.txt
+qrcode/secret_key.txt
