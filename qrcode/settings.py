@@ -27,17 +27,20 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 
 
-SECRET_KEY = 'g-@=2!e)5o@+-roq80hcxh3f*hx5h8lj2vwcm2w9@rd&75$+82'
+#SECRET_KEY = NOT HERE
+# Read secret key from a file
+with open('./secret_key.txt') as f:
+    SECRET_KEY = f.read().strip()
 
 
+DEBUG = False
 
-DEBUG = True
+ALLOWED_HOSTS = ['0.0.0.0', '10.26.240.16', 'web']
 
-ALLOWED_HOSTS = ['0.0.0.0', '.pythonanywhere.com']
-
-CSRF_COOKIE_SECURE = True
-
+#SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+#SECURE_SSL_REDIRECT = True
 SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 
 # Application definition
 

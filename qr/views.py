@@ -7,13 +7,14 @@ from django.urls import reverse_lazy
 from .models import Post
 from .forms import PostForm
 from django.utils import timezone
-
+from django.views.decorators.csrf import csrf_exempt
 
 #class CreatePostView(CreateView):
 #    model = Post
 #    form_class = PostForm
 #    template_name = 'qrcode/post.html'
 #    success_url = reverse_lazy('index')
+@csrf_exempt 
 
 def index(request):
     posts = Post.objects.order_by('URL')

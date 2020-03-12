@@ -15,5 +15,10 @@ python3 manage.py makemigrations
 echo '======= RUNNING MIGRATIONS'
 python3 manage.py migrate
 
-echo '======= RUNNING SERVER'
-python3 manage.py runserver 0.0.0.0:8000
+echo '======= COLLECTING STATIC'
+python manage.py collectstatic --noinput
+
+gunicorn qrcode.wsgi -b 0.0.0.0:8000
+
+#echo '======= RUNNING SERVER'
+#python3 manage.py runserver 0.0.0.0:8000

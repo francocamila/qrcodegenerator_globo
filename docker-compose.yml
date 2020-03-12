@@ -1,6 +1,19 @@
 version: '3'
 
 services:
+  nginx:
+     image: nginx:1.13-alpine
+     container_name: nginx01
+     ports:
+       - "80:80"
+       - "443:443"
+     volumes:
+       - .:/qrcode
+       - ./nginx:/etc/nginx/conf.d
+       - ./nginx/certs:/etc/nginx/certs
+       #- ./nginx
+     depends_on:
+       - web
   db:
     image: postgres:9.6
     env_file: dev-env
@@ -10,7 +23,7 @@ services:
     command: ["sh", "start.sh"]
     volumes:
       - .:/qrcode
-    ports:
-      - "8000:8000"
+    expose:
+       - "80"
     depends_on:
       - db
